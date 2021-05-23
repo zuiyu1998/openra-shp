@@ -1,4 +1,5 @@
 mod asset;
+mod convert;
 mod pal;
 mod shp;
 
