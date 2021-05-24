@@ -2,10 +2,10 @@ use bevy::{
     prelude::Texture,
     render::texture::{Extent3d, TextureDimension, TextureFormat},
 };
+use bytemuck::cast_slice;
 
 /// Helper method to convert a `DynamicImage` to a `Texture`
 pub(crate) fn image_to_texture(dyn_img: image::DynamicImage) -> Texture {
-    use bevy_core::cast_slice;
     let width;
     let height;
 

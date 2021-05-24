@@ -20,13 +20,13 @@ fn main() -> anyhow::Result<()> {
     for i in 0..shp.image_count {
         let img = shp.get_image(&pal, i);
 
-        img.and_then(|img| {
-            let file_name = format!("./imag{}.png", i);
-            let path = Path::new(&file_name);
-
-            img.save(path)?;
-        });
+        match img {
+            Some(img) => {
+                let file_name = format!("image_{}.png", i);
+                img.save(&file_name).unwrap();
+            }
+            None => {}
+        }
     }
-
     Ok(())
 }
